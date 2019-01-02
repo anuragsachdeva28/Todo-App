@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 var todoRoutes = require("./routes/todos");
 var bodyParser = require("body-parser");
 
