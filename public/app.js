@@ -9,15 +9,16 @@ $(document).ready(function(){
         }
         
     });
-    
-    $('.list').on('click','span', function(e){
-        e.stopPropogation();
-        removeTodo($(this).parent());
-    });
 
     $('.list').on('click','li', function(){
         updateTodo($(this));
     });
+    
+    $('.list').on('click','span', function(event){
+        // event.stopPropogation(); 
+        removeTodo($(this).parent());
+    });
+
 });
 
 function addTodos(todos){
@@ -51,7 +52,7 @@ function removeTodo(todo){
     var deleteId = todo.data('id');
     var urlId = '/api/todo/' + deleteId;
     $.ajax({
-        type: 'DELETE',
+        method: 'DELETE',
         url: urlId
     })
     .then(function(){
